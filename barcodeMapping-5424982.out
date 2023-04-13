@@ -1,0 +1,155 @@
+WARNING: pip is being invoked by an old script wrapper. This will fail in a future version of pip.
+Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the underlying issue.
+To avoid this problem you can invoke Python with '-m pip' instead of running pip directly.
+Keyring is skipped due to an exception: [Errno 2] No such file or directory
+Collecting snakemake==5.10.0
+  Using cached snakemake-5.10.0.tar.gz (200 kB)
+Requirement already satisfied: wrapt in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from snakemake==5.10.0->-r config/requirements.txt (line 1)) (1.12.1)
+Requirement already satisfied: requests in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from snakemake==5.10.0->-r config/requirements.txt (line 1)) (2.25.1)
+Requirement already satisfied: ratelimiter in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from snakemake==5.10.0->-r config/requirements.txt (line 1)) (1.2.0.post0)
+Requirement already satisfied: pyyaml in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from snakemake==5.10.0->-r config/requirements.txt (line 1)) (5.4.1)
+Requirement already satisfied: configargparse in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from snakemake==5.10.0->-r config/requirements.txt (line 1)) (0.13.0)
+Requirement already satisfied: appdirs in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from snakemake==5.10.0->-r config/requirements.txt (line 1)) (1.4.3)
+Requirement already satisfied: datrie in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from snakemake==5.10.0->-r config/requirements.txt (line 1)) (0.7.1)
+Requirement already satisfied: jsonschema in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from snakemake==5.10.0->-r config/requirements.txt (line 1)) (3.2.0)
+Requirement already satisfied: docutils in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from snakemake==5.10.0->-r config/requirements.txt (line 1)) (0.14)
+Requirement already satisfied: gitpython in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from snakemake==5.10.0->-r config/requirements.txt (line 1)) (3.1.0)
+Requirement already satisfied: psutil in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from snakemake==5.10.0->-r config/requirements.txt (line 1)) (5.7.0)
+Requirement already satisfied: nbformat in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from snakemake==5.10.0->-r config/requirements.txt (line 1)) (4.4.0)
+Requirement already satisfied: toposort in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from snakemake==5.10.0->-r config/requirements.txt (line 1)) (1.5)
+Requirement already satisfied: certifi>=2017.4.17 in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from requests->snakemake==5.10.0->-r config/requirements.txt (line 1)) (2018.8.24)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from requests->snakemake==5.10.0->-r config/requirements.txt (line 1)) (1.23)
+Requirement already satisfied: chardet<5,>=3.0.2 in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from requests->snakemake==5.10.0->-r config/requirements.txt (line 1)) (3.0.4)
+Requirement already satisfied: idna<3,>=2.5 in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from requests->snakemake==5.10.0->-r config/requirements.txt (line 1)) (2.7)
+Requirement already satisfied: setuptools in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from jsonschema->snakemake==5.10.0->-r config/requirements.txt (line 1)) (53.0.0)
+Requirement already satisfied: pyrsistent>=0.14.0 in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from jsonschema->snakemake==5.10.0->-r config/requirements.txt (line 1)) (0.16.0)
+Requirement already satisfied: six>=1.11.0 in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from jsonschema->snakemake==5.10.0->-r config/requirements.txt (line 1)) (1.11.0)
+Requirement already satisfied: importlib-metadata; python_version < "3.8" in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from jsonschema->snakemake==5.10.0->-r config/requirements.txt (line 1)) (1.6.1)
+Requirement already satisfied: attrs>=17.4.0 in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from jsonschema->snakemake==5.10.0->-r config/requirements.txt (line 1)) (18.2.0)
+Requirement already satisfied: gitdb<5,>=4.0.1 in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from gitpython->snakemake==5.10.0->-r config/requirements.txt (line 1)) (4.0.2)
+Requirement already satisfied: jupyter-core in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from nbformat->snakemake==5.10.0->-r config/requirements.txt (line 1)) (4.4.0)
+Requirement already satisfied: traitlets>=4.1 in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from nbformat->snakemake==5.10.0->-r config/requirements.txt (line 1)) (4.3.2)
+Requirement already satisfied: ipython-genutils in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from nbformat->snakemake==5.10.0->-r config/requirements.txt (line 1)) (0.2.0)
+Requirement already satisfied: zipp>=0.5 in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from importlib-metadata; python_version < "3.8"->jsonschema->snakemake==5.10.0->-r config/requirements.txt (line 1)) (3.1.0)
+Requirement already satisfied: smmap<4,>=3.0.1 in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from gitdb<5,>=4.0.1->gitpython->snakemake==5.10.0->-r config/requirements.txt (line 1)) (3.0.1)
+Requirement already satisfied: decorator in /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages (from traitlets>=4.1->nbformat->snakemake==5.10.0->-r config/requirements.txt (line 1)) (4.3.0)
+Installing collected packages: snakemake
+  Attempting uninstall: snakemake
+    Found existing installation: snakemake 5.13.0
+    Not uninstalling snakemake at /nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages, outside environment /work/users/m/a/marielle/work/mprasnakemake/env
+    Can't uninstall 'snakemake'. No files were found to uninstall.
+    Running setup.py install for snakemake: started
+    Running setup.py install for snakemake: finished with status 'done'
+Successfully installed snakemake-5.10.0
+WARNING: You are using pip version 20.0.2; however, version 21.3.1 is available.
+You should consider upgrading via the '/work/users/m/a/marielle/work/mprasnakemake/env/bin/python3 -m pip install --upgrade pip' command.
+/nas/longleaf/apps/python/3.6.6/lib/python3.6/site-packages/snakemake/workflow.py:17: FutureWarning: read_table is deprecated, use read_csv instead, passing sep='\t'.
+  import subprocess
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	all
+	1	bcMap
+	1	buildReference
+	1	mergeFastq
+	1	selectControls
+	1	variantBarcodeMap
+	1	zipFastq
+	7
+
+[Thu Apr 13 12:51:53 2023]
+rule mergeFastq:
+    input: /work/users/m/a/marielle/work/subMPRA/bcmap/sub_alz_L1_R1.fastq.gz, /work/users/m/a/marielle/work/subMPRA/bcmap/sub_alz_L2_R1.fastq.gz, /work/users/m/a/marielle/work/subMPRA/bcmap/sub_alz_L1_R2.fastq.gz, /work/users/m/a/marielle/work/subMPRA/bcmap/sub_alz_L2_R2.fastq.gz
+    output: bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq, bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq
+    log: bcMapOutput/logs/AD_BCMAP_mergeFastq.err
+    jobid: 6
+    wildcards: group=AD_BCMAP
+
+
+        zcat /work/users/m/a/marielle/work/subMPRA/bcmap/sub_alz_L1_R1.fastq.gz /work/users/m/a/marielle/work/subMPRA/bcmap/sub_alz_L2_R1.fastq.gz > bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq
+        zcat /work/users/m/a/marielle/work/subMPRA/bcmap/sub_alz_L1_R2.fastq.gz /work/users/m/a/marielle/work/subMPRA/bcmap/sub_alz_L2_R2.fastq.gz > bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq
+        
+Submitted job 6 with external jobid '5424992'.
+
+[Thu Apr 13 12:51:53 2023]
+rule selectControls:
+    input: /proj/hyejunglab/MPRA/variant/variant2/mpra_var.fasta
+    output: bcMapOutput/AD_BCMAP_mpra_ad_posneg.txt
+    log: bcMapOutput/logs/AD_BCMAP_posneg.err
+    jobid: 1
+    wildcards: group=AD_BCMAP
+
+
+        module load r/4.2.2
+        Rscript scripts/selecting_positive_negative_controls.R /proj/hyejunglab/MPRA/variant/variant2/mpra_var.fasta bcMapOutput/AD_BCMAP_mpra_ad_posneg.txt
+        
+Submitted job 1 with external jobid '5424993'.
+Waiting at most 500 seconds for missing files.
+[Thu Apr 13 12:52:23 2023]
+Finished job 6.
+1 of 7 steps (14%) done
+
+[Thu Apr 13 12:52:23 2023]
+rule zipFastq:
+    input: bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq, bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq
+    output: bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq.gz, bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq.gz
+    log: bcMapOutput/logs/AD_BCMAP_zipFastq.err
+    jobid: 2
+    wildcards: group=AD_BCMAP
+
+
+        gzip bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq > bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq.gz
+        gzip bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq > bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq.gz
+        
+[Thu Apr 13 12:52:23 2023]
+Finished job 1.
+2 of 7 steps (29%) done
+Submitted job 2 with external jobid '5425002'.
+[Thu Apr 13 12:53:03 2023]
+Error in rule zipFastq:
+    jobid: 2
+    output: bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq.gz, bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq.gz
+    log: bcMapOutput/logs/AD_BCMAP_zipFastq.err (check log file(s) for error message)
+    shell:
+        
+        gzip bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq > bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq.gz
+        gzip bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq > bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 5425002
+
+Error executing rule zipFastq on cluster (jobid: 2, external: 5425002, jobscript: /work/users/m/a/marielle/work/mprasnakemake/.snakemake/tmp.6aoo47i4/snakejob.zipFastq.2.sh). For error details see the cluster log and the log files of the involved rule(s).
+Trying to restart job 2.
+
+[Thu Apr 13 12:53:03 2023]
+rule zipFastq:
+    input: bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq, bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq
+    output: bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq.gz, bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq.gz
+    log: bcMapOutput/logs/AD_BCMAP_zipFastq.err
+    jobid: 2
+    wildcards: group=AD_BCMAP
+
+
+        gzip bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq > bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq.gz
+        gzip bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq > bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq.gz
+        
+Submitted job 2 with external jobid '5425010'.
+[Thu Apr 13 12:53:43 2023]
+Error in rule zipFastq:
+    jobid: 2
+    output: bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq.gz, bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq.gz
+    log: bcMapOutput/logs/AD_BCMAP_zipFastq.err (check log file(s) for error message)
+    shell:
+        
+        gzip bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq > bcMapOutput/fastq/AD_BCMAP_merged_R1.fastq.gz
+        gzip bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq > bcMapOutput/fastq/AD_BCMAP_merged_R2.fastq.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 5425010
+
+Error executing rule zipFastq on cluster (jobid: 2, external: 5425010, jobscript: /work/users/m/a/marielle/work/mprasnakemake/.snakemake/tmp.6aoo47i4/snakejob.zipFastq.2.sh). For error details see the cluster log and the log files of the involved rule(s).
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /work/users/m/a/marielle/work/mprasnakemake/.snakemake/log/2023-04-13T125151.515083.snakemake.log

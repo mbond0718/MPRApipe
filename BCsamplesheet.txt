@@ -1,0 +1,3 @@
+Project	Seq_Rep	Read1	Read2	Sequencing_Directory
+AD_BCMAP	1	sub_alz_L1_R1.fastq.gz	sub_alz_L1_R2.fastq.gz	/work/users/m/a/marielle/work/subMPRA/bcmap/
+AD_BCMAP	2	sub_alz_L2_R1.fastq.gz	sub_alz_L2_R2.fastq.gz	/work/users/m/a/marielle/work/subMPRA/bcmap/

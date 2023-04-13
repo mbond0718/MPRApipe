@@ -1,0 +1,26 @@
+## Path to sample sheet
+samplesheet: 'samplesheet.txt'
+
+## List columns to concatenate for file names 
+## (or indicate a single Name column, i.e. fileNamesFrom: ['Name'])
+fileNamesFrom: ['Project', 'Cell_Type', 'RNA_DNA', 'Condition', 'Time', 'Genotype', 'Bio_Rep', 'Tech_Rep', 'Seq_Rep']
+
+## List columns to group (i.e. any columns left out will become part of the same group)
+## set mergeBy: '' for no merging
+mergeBy: ['Project', 'Cell_Type', 'RNA_DNA', 'Condition', 'Time', 'Genotype', 'Bio_Rep', 'Tech_Rep']
+
+## Barcode reference parameteres: 
+## Note: this should come after running the barcode mapping workflow: 
+bwamem: '/work/users/m/a/marielle/proj/AD/MPRA/batch2/output/barcode.fasta'
+saf: '/work/users/m/a/marielle/proj/AD/MPRA/batch2/output/barcode.saf'
+
+## Adapter sequences to trim: 
+adapter1: "NCTAGA"
+adapter2: "ACTAGTGCA"
+
+## Software versions
+cutadaptVers: "4.1"
+bwaVers: "0.7.17"
+subreadVers: "2.0.1"
+#samtoolsVers: "1.17"
+#javaVers: "10.0.2"

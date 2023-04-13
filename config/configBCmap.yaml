@@ -1,0 +1,17 @@
+## Path to sample sheet
+samplesheet: 'BCsamplesheet.txt'
+
+## List columns to concatenate for file names 
+## (or indicate a single Name column, i.e. fileNamesFrom: ['Name'])
+fileNamesFrom: ['Project', 'Seq_Rep']
+
+## List columns to group (i.e. any columns left out will become part of the same group)
+## set mergeBy: '' for no merging
+mergeBy: ['Project']
+
+## Control MPRA fastq: 
+control: '/proj/hyejunglab/MPRA/variant/variant2/mpra_var.fasta'
+
+## Software versions
+cutadaptVers: "4.1"
+bwaVers: "0.7.17"

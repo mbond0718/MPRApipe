@@ -1,0 +1,145 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import pandas as pd
+import glob
+import shutil
+import os
+
+##### Load config and sample sheets #####
+configfile: "config/config.yaml"
+
+## Parse through adapter sequences
+adapter1 = config['adapter1']
+adapter2 = config['adapter2']
+
+## Read in Fasta
+fasta = config['bwamem']
+saf = config['saf']
+
+## Read in samplesheet
+samples = pd.read_table(config["samplesheet"])
+
+## Convert all columns to strings
+samples = samples.astype(str)
+
+## Concatenate the sequencing directory to Read1 and Read2 for full paths
+samples['Read1'] = samples[['Sequencing_Directory', 'Read1']].apply(lambda row: os.path.join(*row), axis=1)
+
+## Concatenate columns to identify which groups to run (i.e. Seq_Rep will be run together)
+samples['id'] = samples[config['mergeBy']].agg('_'.join, axis=1)
+
+## Group by id and extract Read1 & Read2
+read1 = samples.groupby('id')['Read1'].apply(list).to_dict()
+
+## Use ID's as groups
+groups = list(set(samples['id']))
+
+## Define actions on success
+onsuccess:
+    ## Success message
+    print("processMPRA workflow completed successfully!")
+
+##### Define rules #####
+
+##### Define rules #####
+rule all:
+    input:
+        [expand("output/{group}/{group}_aligned.sai", group = id) for id in groups],
+        [expand("output/{group}/{group}_aligned.sam", group = id) for id in groups],
+        "output/countMatrix.txt",
+        "output/mergedCounts_noOutliers.rda",
+        "output/mergedCounts_noOutliers_atLeastFiveBCs.rda"
+
+rule trim1:
+   input:
+        lambda wildcards: samples.loc[samples['id'] == wildcards.group]['Read1']
+   output:
+       trim1 = temp("output/{group}/{group}_trim1.fastq.gz")
+   log:
+       err = "output/logs/{group}_trim1.err"
+   shell:
+        """
+        module load cutadapt
+        cutadapt -g {adapter1} -o {output} {input}
+        """
+rule trim2:
+   input:
+        lambda wildcards: ['output/{group}/{group}_trim1.fastq.gz']
+   output:
+       trim2 = temp("output/{group}/{group}_trim2.fastq.gz")
+   log:
+       err = "output/logs/{group}_trim2.err"
+   shell:
+        """
+        module load cutadapt
+        cutadapt -a {adapter2} -o {output} {input}
+        """
+
+rule align1:
+   input:
+        lambda wildcards: ['output/{group}/{group}_trim2.fastq.gz']
+   output:
+       sai = "output/{group}/{group}_aligned.sai"
+   log:
+       err = "output/logs/{group}_align1.err"
+   shell:
+        """
+        module load bwa
+        bwa aln {fasta} {input} > {output.sai}
+        """
+
+rule align2:
+   input:
+        sai = lambda wildcards: ['output/{group}/{group}_aligned.sai'],
+        trim2 = lambda wildcards: ['output/{group}/{group}_trim2.fastq.gz']
+   output:
+       sam = "output/{group}/{group}_aligned.sam"
+   log:
+       err = "output/logs/{group}_align2.err"
+   shell:
+        """
+        module load bwa
+        bwa samse {fasta} {input.sai} {input.trim2} > {output.sam}
+        """
+
+rule countMatrix:
+   input:
+        [expand("output/{group}/{group}_aligned.sam", group = id) for id in groups]
+   output:
+       matrix = "output/countMatrix.txt"
+   log:
+       err = "output/logs/countMatrix.err"
+   shell:
+        """
+        module load subread
+        featureCounts --minOverlap 20 --fracOverlap 1 --fracOverlapFeature 1 -a {saf} -F SAF -T 4 -o {output.matrix} {input}
+        """
+
+rule outliers: 
+    input: 
+        "output/countMatrix.txt"
+    output: 
+        "output/mergedCounts_noOutliers.rda"
+    log: 
+        err = "output/logs/outliers.err",
+        out = "output/logs/outliers.out"
+    shell: 
+        """
+        module load r/4.2.2
+        Rscript scripts/filterOutliers.R {input} 1> {log.out}
+        """
+
+rule lowCounts: 
+    input: 
+        "output/mergedCounts_noOutliers.rda"
+    output: 
+        "output/mergedCounts_noOutliers_atLeastFiveBCs.rda"
+    log: 
+        err = "output/logs/lowCounts.err",
+        out = "output/logs/lowCounts.out"
+    shell: 
+        """
+        module load r/4.2.2
+        Rscript scripts/filterLowCounts.R {input} 1> {log.out}
+        """
